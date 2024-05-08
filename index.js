@@ -47,10 +47,9 @@ const questions = [
 
 // function to write SVG file
 function writeToFile(fileName, data) {
-    
-    const svg = data; // TODO: rework this
 
-    fs.writeFile(fileName, svg, (error) => error ? console.log(error) : console.log('Generated logo.svg!'));
+    // write svg
+    fs.writeFile(fileName, data, (error) => error ? console.log(error) : console.log('Generated logo.svg!'));
 }
 
 // function to initialize app
@@ -59,7 +58,12 @@ async function init() {
     // store prompt answers
     const answers = await inquirer.prompt(questions);
     console.log(answers);
-    writeToFile('logo.svg', JSON.stringify(answers)); // TODO: replace answers?
+
+    // create svg
+    const svg = generateSvg(answers);
+
+    // write svg
+    writeToFile('logo.svg', svg);
 }
 
 // Function call to initialize app
