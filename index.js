@@ -1,4 +1,5 @@
 const inquirer = require('inquirer');
+const fs = require('fs');
 
 // Create an array of questions for user input
 const questions = [
@@ -44,12 +45,21 @@ const questions = [
     },
 ]
 
+// function to write SVG file
+function writeToFile(fileName, data) {
+    
+    const svg = data; // TODO: rework this
+
+    fs.writeFile(fileName, svg, (error) => error ? console.log(error) : console.log('Generated logo.svg!'));
+}
+
 // function to initialize app
 async function init() {
 
     // store prompt answers
     const answers = await inquirer.prompt(questions);
     console.log(answers);
+    writeToFile('logo.svg', JSON.stringify(answers)); // TODO: replace answers?
 }
 
 // Function call to initialize app
