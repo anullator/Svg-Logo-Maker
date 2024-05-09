@@ -19,7 +19,7 @@ The svg will be generated in the root folder.
 
 MIT License
 
-Copyright (c) 2024 Dany
+Copyright (c) 2024 anullator
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal
